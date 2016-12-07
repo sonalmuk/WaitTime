@@ -1,0 +1,19 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    Queues
+    <button type="button" class="btn btn-success btn-xs pull-right" ng-click="showModal()">+</button>
+  </div>
+  <div class="panel-body">
+    <div ng-if=""!queues.length" class="text-center">Use the '+' button above to create a list</div>
+    <div class="list-group">
+        <a class="list-group-item" href="">All</a>
+        <a class="list-group-item"
+            ng-click="goToQueue(Q.name)"
+            class="{active:currentQueue==Q.name}"
+            ng-repeat="Q in queues track by $index">{{Q.name}}
+          <button type="button" ng-click="closeQueue(Q)" class="close">&times;</button>
+        </a>
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+      <queue-panel></queue-panel>
+    </div>
+    <div class="col-md-9">
+      <div guest-queue-display designate-to-queue="designateToQueue"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+        <!--ul><li ng-repeat="win in providerWindows">{{win.windowName}}, {{win.serving}}<button ng-click="freeWindow(win.windowName)">request completed,window open</button></li></ul-->
+     <table class="table-responsive"><tr>
+       <td ng-repeat="win in providerWindows">
+         <div class="well well-sm"><h4>{{win.windowName}}</h4>
+           <div class="alert alert-success"><span ng-if="win.serving!=''">Now Serving Guest with Ph #{{win.serving}}</span>
+              <span ng-if="win.serving==''">Open</span>
+            </div>
+            <div><button class="btn btn-default" ng-click="freeWindow(win.windowName)">clear window for next guest</button></div>
+         </div>
+       </td>
+     </tr></table>
+    </div>
+
+  </div>
+</div>

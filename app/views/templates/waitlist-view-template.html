@@ -1,0 +1,38 @@
+<div class="panel panel-info">
+   <div class="panel-heading">
+
+     <span>All Queues </span>
+   </div>
+   <div class="panel-body table-responsive">
+
+      <!--p ng-repeat="queue in queues"> {{queue.description}}
+         <span ng-repeat="g in queue.guests"> {{g.phoneNumber}} ,</span>
+      </p-->
+      <table class="table table-responsive table-striped" >
+        <thead>
+          <tr>
+
+            <td>Queue Description</td>
+            <td>Confirmation #</td>
+            <td>Position in Queue</td>
+            <td>Wait time</td>
+            <td>Est. time of Service</td>
+            <td>Window #</td>
+            <td ng-if="designateToQueue">Tasks</td>
+          </tr>
+        </thead>
+        <tbody ng-repeat="queue in queues">
+               <tr ng-repeat="g in queue.guests track by $index">
+                      <td>{{queue.description}}</td>
+                      <td>{{g.phoneNumber}}</td>
+                      <td>{{g.position}}</td>
+                      <td>{{g.wait}}</td>
+                      <td>{{g.ETA | date:'h:mm a'}}</td>
+                      <td>{{g.windowNumber}}</td>
+                      <td ng-if="designateToQueue"><i ng-show="{{g.position===1}}" class="glyphicon glyphicon-send" ng-click="sendToWindow(queue)"></i></td>
+              </tr>
+        </tbody>
+      </table>
+   </div>
+
+</div>

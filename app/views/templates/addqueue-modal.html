@@ -1,0 +1,22 @@
+<div class="modal" tabIndex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">Create A Queue </div>
+      <div ng-if="error_duplicate_queue!=''" class="alert alert-danger">NOTE : {{error_duplicate_queue}}</div>
+      <form role="addQueue" id="add-queue" name="addQueueForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="queue-name">Queue Name</label>
+            <input type="text" id="queue-name" placeholder require ng-model="queue.name">
+          </div>
+          <div class="form-group">
+            <label for="queue-description">Description</label>
+            <input type="text" id="queue-description" placeholder required ng-model="queue.description">
+            <button type="submit" class="btn btn-success" ng-click="createQueue()" ng-disabled="!addQueueForm.$valid">Create A Queue</button>
+            <button type="button" class="btn btn-danger" ng-click="$hide()">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

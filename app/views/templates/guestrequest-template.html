@@ -1,0 +1,18 @@
+<div class="panel panel-info">
+  <div class="panel-heading">Guest services</div>
+  <div class="panel-body">
+        <form id="request-id" name="guestRequestForm">
+          <div class="form-group">
+            <!--label for="cell-number">Enter Cell Number</label-->
+            <input type="tel" size="12" name="phoneNumber" id="phoneNumber" ng-model="guest.phoneNumber" placeholder="Enter Mobile #" required>
+          </div>
+          <div class="form-group">
+            <select placeholder="Select a Service" ng-model="selectedItem" ng-options="queue.name for queue in queues" required></select>
+          </div>
+          <div><button class="btn btn-default" type="button" ng-disabled="!guestRequestForm.$valid" ng-click="addToQueue()">Get in Line</button>
+          <button class="btn btn-default" type="button" ng-click="removeFromQueue()">Leave</button></div>
+          <!--div><button class="btn btn-default btn-block" type="button">Join Later</button></div>
+          <div><button class="btn btn-default btn-block" type="button">Re-Join</button></div-->
+        </form>
+    </div>
+</div>
